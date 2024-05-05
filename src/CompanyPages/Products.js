@@ -397,6 +397,8 @@ export const Products = () => {
   const [amount, setAmount] = useState(1);
   const [filter, setFilter] = useState(false);
   const [filterSelector, setFilterSelector] = useState({});
+  const [addProduct, setAddProduct] = useState(false);
+  const [addNewProduct, setAddNewProduct] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -507,7 +509,6 @@ export const Products = () => {
                     {ProductData.product_details.map((catagory, e) => (
                       <div className="grid grid-cols-3">
                         <div className="inline">
-                          {" "}
                           <Button
                             sx={{
                               backgroundColor: "#ebf7f7",
@@ -519,6 +520,9 @@ export const Products = () => {
                             Add
                           </Button>
                           <TextField size="small"></TextField>
+                          <div className="inline align-right justify-center ml-3">
+                            {catagory.name}
+                          </div>
                         </div>
                         <div
                           className="flex align-center justify-center"
@@ -571,71 +575,139 @@ export const Products = () => {
                         </div>
                       </div>
                     ))}
+                    <div>
+                      <div className="flex align-center justify-center mb-1 mt-1">
+                        <Button
+                          onClick={() => setAddProduct(!addProduct)}
+                          sx={{
+                            backgroundColor: "#ebf7f7",
+                            color: buttonColor,
+                          }}
+                        >
+                          New catagory
+                        </Button>
+                      </div>
+                      {addProduct ? (
+                        <div>
+                          <div className="grid grid-cols-3">
+                            <div className="flex align-center justify-center">
+                              Catagory Name
+                            </div>
+                            <div className="flex align-center justify-center">
+                              List
+                            </div>
+                            <div className="flex align-center justify-center"></div>
+                          </div>
+                          <div className="grid grid-cols-3 gap-4">
+                            <TextField
+                              className="flex align-center justify-center"
+                              size="small"
+                            ></TextField>
+                            <TextField
+                              className="flex align-center justify-center"
+                              size="small"
+                            ></TextField>
+                            <Button>Add</Button>
+                          </div>
+                        </div>
+                      ) : null}
+                    </div>
                   </div>
                 ) : null}
               </div>
             </div>
           </Grow>
           <div className="p-2 bg-white rounded shadow-md">
-            <div className="grid grid-cols-7 mt-3">
-              <div className="flex align-center justify-center">Product ID</div>
-              <div className="flex align-center justify-center">
-                Product Cost
+            {addNewProduct ? (
+              <div>
+                <div className="flex align-center justify-center">
+                  <Button
+                    onClick={() => setAddNewProduct(!addNewProduct)}
+                    sx={{
+                      backgroundColor: "#ebf7f7",
+                      color: buttonColor,
+                    }}
+                  >
+                    Products
+                  </Button>
+                </div>
+                <div className="grid grid-cols-7 mt-3">
+                  <div className="flex align-center justify-center">
+                    Product ID
+                  </div>
+                  <div className="flex align-center justify-center">
+                    Product Cost
+                  </div>
+                  <div className="flex align-center justify-center">
+                    Product Description
+                  </div>
+                  <div className="flex align-center justify-center">
+                    Product Brand
+                  </div>
+                  <div className="flex align-center justify-center">
+                    Delivery time
+                  </div>
+                  <div className="flex align-center justify-center">
+                    Quantity
+                  </div>
+                  <div className="flex align-center justify-center"></div>
+                </div>
+                <div className="grid grid-cols-7">
+                  <TextField
+                    size={"small"}
+                    className="flex align-center justify-center"
+                    sx={{ padding: "3pt" }}
+                  />
+                  <TextField
+                    size={"small"}
+                    className="flex align-center justify-center"
+                    sx={{ padding: "3pt" }}
+                  />
+                  <TextField
+                    size={"small"}
+                    className="flex align-center justify-center"
+                    sx={{ padding: "3pt" }}
+                  />
+                  <TextField
+                    size={"small"}
+                    className="flex align-center justify-center"
+                    sx={{ padding: "3pt" }}
+                  />
+                  <TextField
+                    size={"small"}
+                    className="flex align-center justify-center"
+                    sx={{ padding: "3pt" }}
+                  />
+                  <TextField
+                    size={"small"}
+                    className="flex align-center justify-center"
+                    sx={{ padding: "3pt" }}
+                  />
+                  <Button
+                    sx={{
+                      backgroundColor: "#ebf7f7",
+                      color: buttonColor,
+                      padding: "3pt",
+                    }}
+                    size={"small"}
+                  >
+                    Add to list
+                  </Button>
+                </div>
               </div>
+            ) : (
               <div className="flex align-center justify-center">
-                Product Description
+                <Button
+                  onClick={() => setAddNewProduct(!addNewProduct)}
+                  sx={{
+                    backgroundColor: "#ebf7f7",
+                    color: buttonColor,
+                  }}
+                >
+                  Products
+                </Button>
               </div>
-              <div className="flex align-center justify-center">
-                Product Brand
-              </div>
-              <div className="flex align-center justify-center">
-                Delivery time
-              </div>
-              <div className="flex align-center justify-center">Quantity</div>
-              <div className="flex align-center justify-center"></div>
-            </div>
-            <div className="grid grid-cols-7">
-              <TextField
-                size={"small"}
-                className="flex align-center justify-center"
-                sx={{ padding: "3pt" }}
-              />
-              <TextField
-                size={"small"}
-                className="flex align-center justify-center"
-                sx={{ padding: "3pt" }}
-              />
-              <TextField
-                size={"small"}
-                className="flex align-center justify-center"
-                sx={{ padding: "3pt" }}
-              />
-              <TextField
-                size={"small"}
-                className="flex align-center justify-center"
-                sx={{ padding: "3pt" }}
-              />
-              <TextField
-                size={"small"}
-                className="flex align-center justify-center"
-                sx={{ padding: "3pt" }}
-              />
-              <TextField
-                size={"small"}
-                className="flex align-center justify-center"
-                sx={{ padding: "3pt" }}
-              />
-              <Button
-                sx={{
-                  backgroundColor: "#ebf7f7",
-                  color: buttonColor,
-                  padding: "3pt",
-                }}
-                size={"small"}
-              >
-                Add to list
-              </Button>
-            </div>
+            )}
           </div>
 
           <div className="grid grid-cols-4 gap-2 h-screen">
