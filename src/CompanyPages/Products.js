@@ -618,9 +618,86 @@ export const Products = () => {
             </div>
           </Grow>
           <div className="p-2 bg-white rounded shadow-md">
-            {addNewProduct ? (
-              <div>
-                <div className="flex align-center justify-center">
+            <Grow in={true} timeout={1400}>
+              {addNewProduct ? (
+                <div>
+                  <div className="flex align-center justify-center">
+                    <Button
+                      onClick={() => setAddNewProduct(!addNewProduct)}
+                      sx={{
+                        backgroundColor: "#ebf7f7",
+                        color: buttonColor,
+                      }}
+                    >
+                      Products
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-7 mt-3">
+                    <div className="flex align-center justify-center">
+                      Product ID
+                    </div>
+                    <div className="flex align-center justify-center">
+                      Product Cost
+                    </div>
+                    <div className="flex align-center justify-center">
+                      Product Description
+                    </div>
+                    <div className="flex align-center justify-center">
+                      Product Brand
+                    </div>
+                    <div className="flex align-center justify-center">
+                      Delivery time
+                    </div>
+                    <div className="flex align-center justify-center">
+                      Quantity
+                    </div>
+                    <div className="flex align-center justify-center"></div>
+                  </div>
+                  <div className="grid grid-cols-7">
+                    <TextField
+                      size={"small"}
+                      className="flex align-center justify-center"
+                      sx={{ padding: "3pt" }}
+                    />
+                    <TextField
+                      size={"small"}
+                      className="flex align-center justify-center"
+                      sx={{ padding: "3pt" }}
+                    />
+                    <TextField
+                      size={"small"}
+                      className="flex align-center justify-center"
+                      sx={{ padding: "3pt" }}
+                    />
+                    <TextField
+                      size={"small"}
+                      className="flex align-center justify-center"
+                      sx={{ padding: "3pt" }}
+                    />
+                    <TextField
+                      size={"small"}
+                      className="flex align-center justify-center"
+                      sx={{ padding: "3pt" }}
+                    />
+                    <TextField
+                      size={"small"}
+                      className="flex align-center justify-center"
+                      sx={{ padding: "3pt" }}
+                    />
+                    <Button
+                      sx={{
+                        backgroundColor: "#ebf7f7",
+                        color: buttonColor,
+                        padding: "3pt",
+                      }}
+                      size={"small"}
+                    >
+                      Add to list
+                    </Button>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex align-center justify-center mt-1">
                   <Button
                     onClick={() => setAddNewProduct(!addNewProduct)}
                     sx={{
@@ -631,85 +708,9 @@ export const Products = () => {
                     Products
                   </Button>
                 </div>
-                <div className="grid grid-cols-7 mt-3">
-                  <div className="flex align-center justify-center">
-                    Product ID
-                  </div>
-                  <div className="flex align-center justify-center">
-                    Product Cost
-                  </div>
-                  <div className="flex align-center justify-center">
-                    Product Description
-                  </div>
-                  <div className="flex align-center justify-center">
-                    Product Brand
-                  </div>
-                  <div className="flex align-center justify-center">
-                    Delivery time
-                  </div>
-                  <div className="flex align-center justify-center">
-                    Quantity
-                  </div>
-                  <div className="flex align-center justify-center"></div>
-                </div>
-                <div className="grid grid-cols-7">
-                  <TextField
-                    size={"small"}
-                    className="flex align-center justify-center"
-                    sx={{ padding: "3pt" }}
-                  />
-                  <TextField
-                    size={"small"}
-                    className="flex align-center justify-center"
-                    sx={{ padding: "3pt" }}
-                  />
-                  <TextField
-                    size={"small"}
-                    className="flex align-center justify-center"
-                    sx={{ padding: "3pt" }}
-                  />
-                  <TextField
-                    size={"small"}
-                    className="flex align-center justify-center"
-                    sx={{ padding: "3pt" }}
-                  />
-                  <TextField
-                    size={"small"}
-                    className="flex align-center justify-center"
-                    sx={{ padding: "3pt" }}
-                  />
-                  <TextField
-                    size={"small"}
-                    className="flex align-center justify-center"
-                    sx={{ padding: "3pt" }}
-                  />
-                  <Button
-                    sx={{
-                      backgroundColor: "#ebf7f7",
-                      color: buttonColor,
-                      padding: "3pt",
-                    }}
-                    size={"small"}
-                  >
-                    Add to list
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <div className="flex align-center justify-center">
-                <Button
-                  onClick={() => setAddNewProduct(!addNewProduct)}
-                  sx={{
-                    backgroundColor: "#ebf7f7",
-                    color: buttonColor,
-                  }}
-                >
-                  Products
-                </Button>
-              </div>
-            )}
+              )}
+            </Grow>
           </div>
-
           <div className="grid grid-cols-4 gap-2 h-screen">
             {ProductData.products.map((product, i) => (
               <div key={i} className="p-2">
